@@ -144,6 +144,10 @@ for plugin_info in "${ZSH_PLUGINS[@]}"; do
     fi
   fi
 done
+echo -e "${GREEN} 安装 autojump...${NC}"
+git clone https://github.com/wting/autojump.git /tmp
+chmod +x /tmp/autojump/install.py
+/tmp/autojump/install.py
 
 echo -e "${GREEN}>>> 检查并安装 omz 主题...${NC}"
 # for now, only sapceship-theme install
