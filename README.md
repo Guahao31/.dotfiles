@@ -4,10 +4,10 @@
 
 目前配置的内容有：
 
-- zsh
-    - oh-my-zsh 与插件 autojump、zsh-autosuggestions、zsh-syntax-highlighting
-    - themes: spaceship
-- tmux
-    - oh-my-tmux 以及一些个人配置(`tmux/.tmux.conf.local`)
-- nvim
-    - lazy-vim （懒人表示能用就行）以及一些个人配置
+- [Z shell](https://www.zsh.org/)
+    - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) 与插件 [autojump](https://github.com/wting/autojump)、[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)、[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+    - themes: [spaceship](https://github.com/spaceship-prompt/spaceship-prompt)
+- [tmux](https://github.com/tmux/tmux)
+    - [oh-my-tmux](https://github.com/gpakosz/.tmux) 以及一些个人配置(`tmux/.tmux.conf.local`)
+- [nvim](https://github.com/neovim/neovim)
+    - [lazy-vim](https://github.com/LazyVim/LazyVim) （懒人表示能用就行）以及一些个人配置
