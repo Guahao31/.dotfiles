@@ -27,7 +27,7 @@ if [[ "$use_ssh" =~ ^[Yy]$ ]]; then
   OLD_INSTEAD_OF=$(git config --global --get url."git@github.com:".insteadOf)
   trap restore_config EXIT
   echo -e "${GREEN}>>> 正在配置 Git 使用 SSH 代替 HTTPS...${NC}"
-  git config url."git@github.com:".insteadOf "https://github.com/"
+  git config --global url."git@github.com:".insteadOf "https://github.com/"
   echo "SSH 模式已启用"
 else
   echo "保持 HTTPS 访问 GitHub"
