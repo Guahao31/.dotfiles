@@ -145,7 +145,7 @@ for plugin_info in "${ZSH_PLUGINS[@]}"; do
   fi
 done
 echo -e "${GREEN} 安装 autojump...${NC}"
-git clone https://github.com/wting/autojump.git /tmp
+git clone https://github.com/wting/autojump.git /tmp/autojump
 chmod +x /tmp/autojump/install.py
 /tmp/autojump/install.py
 
