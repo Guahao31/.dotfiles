@@ -5,9 +5,34 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-DOTFILES_DIR="$HOME/dotfiles"
+DOTFILES_DIR="$HOME/.dotfiles"
 
 echo -e "${GREEN}>>> 初始化 Dotfiles 部署脚本...${NC}"
+
+read -p "是否开启 ssh 模式（适用于已配置 GitHub SSH Key 的机器）？[y/N] " use_ssh
+
+restore_config() {
+  if [ -n "$OLD_INSTEAD_OF" ]; then
+    # 如果原有配置有值，恢复回去
+    git config --global url."git@github.com:".insteadOf "$OLD_INSTEAD_OF"
+    echo -e "${GREEN} 已恢复原有 Git 配置：url.git@github.com.insteadOf = ${OLD_INSTEAD_OF}${NC}"
+  else
+    # 如果原有无配置，直接删除临时添加的规则
+    git config --global --unset url."git@github.com:".insteadOf
+    echo -e "${GREEN} 已删除临时 Git 配置，恢复原状${NC}"
+  fi
+}
+
+if [[ "$use_ssh" =~ ^[Yy]$ ]]; then
+  OLD_INSTEAD_OF=$(git config --global --get url."git@github.com:".insteadOf)
+  trap restore_config EXIT
+  echo -e "${GREEN}>>> 正在配置 Git 使用 SSH 代替 HTTPS...${NC}"
+  git config url."git@github.com:".insteadOf "https://github.com/"
+  echo "SSH 模式已启用"
+else
+  echo "保持 HTTPS 访问 GitHub"
+  git config --unset url."git@github.com:".insteadOf 2>/dev/null
+fi
 
 # --------------------------------------------------------------------------
 # 1. 操作系统检测与依赖安装
