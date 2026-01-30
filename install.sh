@@ -169,6 +169,8 @@ if [ -d "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
   mv "$HOME/.config/nvim" "$HOME/.config/nvim.bak"
 fi
 link_file "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+# Install pylatexenc for render of matkdown-latex
+pip install pylatexenc || pip3 install pylatexenc
 
 # --------------------------------------------------------------------------
 # 4. 结尾处理
