@@ -1,14 +1,21 @@
 return {
   {
+    -- Install markdown preview, use npx if available.
     "iamcco/markdown-preview.nvim",
-    ft = "markdown",
-    build = function()
-      vim.fn["mkdp#util#install"]()
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function(plugin)
+      if vim.fn.executable("npx") then
+        vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install")
+      else
+        vim.cmd([[Lazy load markdown-preview.nvim]])
+        vim.fn["mkdp#util#install"]()
+      end
     end,
-    config = function()
-      vim.g.mkdp_enable_mathjax = 1 -- 启用MathJax渲染LaTeX公式
-      vim.g.mkdp_mathjax_autoload = 1
-      vim.g.mkdp_mathjax_path = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    init = function()
+      if vim.fn.executable("npx") then
+        vim.g.mkdp_filetypes = { "markdown" }
+      end
     end,
   },
 }

@@ -11,3 +11,8 @@
     - [oh-my-tmux](https://github.com/gpakosz/.tmux) 以及一些个人配置(`tmux/.tmux.conf.local`)
 - [nvim](https://github.com/neovim/neovim)
     - [lazy-vim](https://github.com/LazyVim/LazyVim) （懒人表示能用就行）以及一些个人配置
+
+可能遇到的问题：
+
+- 使用 MarkdownPreview 时遇到报错 `Pre build and node is not found`
+    - 根据 [Issue 7](https://github.com/iamcco/markdown-preview.nvim/issues/7) 尝试在 nvim 中进行 `:call mkdp#util#install()`
