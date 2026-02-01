@@ -1,3 +1,8 @@
+-- Ban this plugin for now
+if true then
+  return {}
+end
+
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
