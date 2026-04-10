@@ -20,3 +20,5 @@ map("v", "d", '"+d', { desc = "Visual: Cut to system clipboard" })
 -- Normal mode(n): Paste from system clipboard (p=below cursor, P=above cursor)
 map("n", "p", '"+p', { desc = "Paste from system clipboard (below)" })
 map("n", "P", '"+P', { desc = "Paste from system clipboard (above)" })
+
+map("n", "<leader>y", 'ggVG"+y', { desc = "copy all the file into clipboard" })
